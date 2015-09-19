@@ -1,0 +1,17 @@
+# Site settings
+title: portableR
+email: nafiux@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  portableR is a version of R statistics that have all their
+  static libraries within the same folder, this lets run in
+  x86_64 computers. It’s useful when you don’t have access as
+  root to install packages. This project is aimed to run in web
+  servers to build microservices (AWS Lambda) that require R to
+  process data, png chart generation, etc.
+baseurl: "/portableR" # the subpath of your site, e.g. /blog/
+url: "http://nafiux.github.io/portableR" # the base hostname & protocol for your site
+twitter_username: nafiux
+github_username:  nafiux
+
+# Build settings
+markdown: kramdown

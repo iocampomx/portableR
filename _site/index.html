@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>portableR</title>
+  <meta name="description" content="portableR is a version of R statistics that have all their static libraries within the same folder, this lets run in x86_64 computers. It’s useful when you don’t have access as root to install packages. This project is aimed to run in web servers to build microservices (AWS Lambda) that require R to process data, png chart generation, etc.
+">
+
+  <!--link rel="stylesheet" href="/css/main.css"-->
+
+  <link rel="stylesheet" type="text/css" href="/stylesheets/normalize.css" media="screen">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/github-light.css" media="screen">
+
+  <link rel="canonical" href="http://nafiux.github.io/portableR/">
+  <link rel="alternate" type="application/rss+xml" title="portableR" href="http://nafiux.github.io/portableR/feed.xml" />
+</head>
+
+
+  <body>
+
+    <section class="page-header">
+  <h1 class="project-name">portableR</h1>
+  <h2 class="project-tagline">R Statistics ready to run in x86_64 Linux</h2>
+  <a href="https://github.com/nafiux/portableR" class="btn">View on GitHub</a>
+  <a href="https://github.com/nafiux/portableR/zipball/master" class="btn">Download .zip</a>
+  <a href="https://github.com/nafiux/portableR/tarball/master" class="btn">Download .tar.gz</a>
+</section>
+
+
+    <section class="main-content">
+
+        <!--
+      	
+      		
+      	
+      		
+      	
+        -->
+
+        <p><strong>portableR</strong> is a version of R statistics that have all their static libraries within the same folder, this lets run in x86_64 computers. It’s useful when you don’t have access as root to install packages. This project is aimed to run in web servers to build microservices (<a href="https://aws.amazon.com/lambda/"><strong>AWS Lambda</strong></a>) that require R to process data, png chart generation, etc.</p>
+
+<h2 id="news">News</h2>
+
+<ul>
+  
+  <li>Sep 11, 2015 <a href="http://nafiux.com/blog/2015/09/11/running-r-statistics-in-aws-lambda/">Running R Statistics in AWS Lambda (original)</a></li>
+</ul>
+
+<h2 id="features">Features</h2>
+
+<ul>
+  <li>Project size ~40 MB to meet the AWS Lambda requirements that allows sizes up 50MB</li>
+  <li>Support <a href="http://ggplot2.org/">ggplot2</a> charts</li>
+</ul>
+
+<h2 id="usage">Usage</h2>
+
+<p>Unzip the project in your work directory, for exmaple in the user homedir (see run.sh file).</p>
+
+<p>Setup environment variables:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/lib
+<span class="nb">export </span><span class="nv">R_HOME</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>
+<span class="nb">export </span><span class="nv">R_LIBS</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/site-library</code></pre></div>
+
+<h4 id="check-version">Check version</h4>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">./R --version</code></pre></div>
+
+<p>Output</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">R version 3.2.2 <span class="o">(</span>2015-08-14<span class="o">)</span> -- <span class="s2">&quot;Fire Safety&quot;</span>
+Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">2015</span> The R Foundation <span class="k">for</span> Statistical Computing
+Platform: x86_64-pc-linux-gnu <span class="o">(</span>64-bit<span class="o">)</span></code></pre></div>
+
+<h4 id="run-r-script-with-params">Run R script with params</h4>
+
+<p>You need to pass the absolute path of the script.</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">./R --no-restore --file<span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/examples/age.R --args 1988</code></pre></div>
+
+<p>Output</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">&gt; <span class="o">(</span>today &lt;- Sys.Date<span class="o">())</span>
+<span class="o">[</span>1<span class="o">]</span> <span class="s2">&quot;2015-09-19&quot;</span>
+&gt; <span class="o">(</span>year &lt;- format<span class="o">(</span>today, <span class="s2">&quot;%Y&quot;</span><span class="o">))</span>
+<span class="o">[</span>1<span class="o">]</span> <span class="s2">&quot;2015&quot;</span>
+&gt; <span class="o">(</span>birthYear &lt;- commandArgs<span class="o">(</span><span class="nv">trailingOnly</span><span class="o">=</span>TRUE<span class="o">)[</span>1<span class="o">])</span>
+<span class="o">[</span>1<span class="o">]</span> <span class="s2">&quot;1988&quot;</span>
+&gt; as.numeric<span class="o">(</span>year<span class="o">)</span> - as.numeric<span class="o">(</span>birthYear<span class="o">)</span>
+<span class="o">[</span>1<span class="o">]</span> 27
+&gt;</code></pre></div>
+
+<h2 id="examples">Examples</h2>
+
+<ul>
+  <li><a href="http://nafiux.com/blog/2015/09/11/running-r-statistics-in-aws-lambda/">Running R Statistics in AWS Lambda (original)</a></li>
+</ul>
+
+<h2 id="future-work">Future work</h2>
+
+<ul>
+  <li>Support http (curl) request, currently does not have <strong>curl</strong> package installed</li>
+</ul>
+
+<h2 id="collaboration">Collaboration</h2>
+
+<p>Please report <a href="https://github.com/nafiux/portableR/issues">issues</a> in GitHub.</p>
+
+<p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+
+
+
+        <footer class="site-footer">
+  <span class="site-footer-owner"><a href="https://github.com/nafiux/portableR">portableR</a> is maintained by <a href="https://github.com/nafiux">nafiux</a>.</span>
+
+  <span class="site-footer-credits">This page was generated by <a href="http://jekyllrb.com/">Jekyll</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+</footer>
+
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    var pageTracker = _gat._getTracker("UA-67793246-1");
+    pageTracker._trackPageview();
+  } catch(err) {}
+</script>
+
+
+    </section>
+
+  </body>
+
+</html>
