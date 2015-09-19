@@ -1,0 +1,27 @@
+Package: scales
+Version: 0.3.0
+Authors@R: c(
+    person("Hadley", "Wickham", , "hadley@rstudio.com", c("aut", "cre")),
+    person("RStudio", role = "cph")
+    )
+Title: Scale Functions for Visualization
+Description: Graphical scales map data to aesthetics, and provide
+    methods for automatically determining breaks and labels
+    for axes and legends.
+URL: https://github.com/hadley/scales
+BugReports: https://github.com/hadley/scales/issues
+Depends: R (>= 2.13)
+Imports: RColorBrewer, dichromat, plyr, munsell (>= 0.2), labeling,
+        methods, Rcpp
+LinkingTo: Rcpp
+Suggests: testthat (>= 0.8)
+License: MIT + file LICENSE
+LazyLoad: yes
+NeedsCompilation: yes
+Packaged: 2015-08-24 18:41:17 UTC; hadley
+Author: Hadley Wickham [aut, cre],
+  RStudio [cph]
+Maintainer: Hadley Wickham <hadley@rstudio.com>
+Repository: CRAN
+Date/Publication: 2015-08-25 00:48:31
+Built: R 3.2.2; x86_64-pc-linux-gnu; 2015-09-09 18:10:30 UTC; unix

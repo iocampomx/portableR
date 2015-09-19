@@ -1,0 +1,32 @@
+Package: stringi
+Version: 0.5-5
+Date: 2015-06-28
+Title: Character String Processing Facilities
+Description: Allows for fast, correct, consistent, portable,
+    as well as convenient character string/text processing in every locale
+    and any native encoding. Owing to the use of the ICU library,
+    the package provides R users with platform-independent functions
+    known to Java, Perl, Python, PHP, and Ruby programmers.
+    Among available features there are: pattern searching
+    (e.g. via regular expressions), random string generation,
+    string collation, transliteration, concatenation,
+    date-time formatting and parsing, etc.
+URL: http://stringi.rexamine.com/ http://site.icu-project.org/
+        http://www.unicode.org/
+BugReports: http://github.com/Rexamine/stringi/issues
+SystemRequirements: ICU4C (>= 50, optional)
+Type: Package
+Depends: R (>= 2.13.1)
+Imports: tools, utils, stats
+Biarch: TRUE
+License: file LICENSE
+Author: Marek Gagolewski and Bartek Tartanus (stringi source code);
+    IBM and other contributors (ICU4C 55.1 source code);
+    Unicode, Inc. (Unicode Character Database)
+Maintainer: Marek Gagolewski <gagolews@rexamine.com>
+NeedsCompilation: yes
+Packaged: 2015-06-28 20:51:37 UTC; gagolews
+License_is_FOSS: yes
+Repository: CRAN
+Date/Publication: 2015-06-29 07:40:06
+Built: R 3.2.2; x86_64-pc-linux-gnu; 2015-09-09 18:05:20 UTC; unix
