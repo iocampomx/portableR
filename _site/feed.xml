@@ -4,10 +4,10 @@
     <title>portableR</title>
     <description>portableR is a version of R statistics that have all their static libraries within the same folder, this lets run in x86_64 computers. It’s useful when you don’t have access as root to install packages. This project is aimed to run in web servers to build microservices (AWS Lambda) that require R to process data, png chart generation, etc.
 </description>
-    <link>http://nafiux.github.io/portableR/</link>
-    <atom:link href="http://nafiux.github.io/portableR/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 19 Sep 2015 10:38:13 -0700</pubDate>
-    <lastBuildDate>Sat, 19 Sep 2015 10:38:13 -0700</lastBuildDate>
+    <link>http://nafiux.github.io/portableR/portableR/</link>
+    <atom:link href="http://nafiux.github.io/portableR/portableR/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 19 Sep 2015 10:57:56 -0700</pubDate>
+    <lastBuildDate>Sat, 19 Sep 2015 10:57:56 -0700</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
   </channel>

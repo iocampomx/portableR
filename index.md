@@ -18,7 +18,11 @@ layout: default
 ##Features
 
 - Project size ~40 MB to meet the AWS Lambda requirements that allows sizes up 50MB
-- Support [ggplot2] charts
+
+## Packages
+
+- [ggplot2]
+- [jsonlite]
 
 ##Usage
 
@@ -74,7 +78,7 @@ Output
 
 ##Future work
 
-- Support http (curl) request, currently does not have **curl** package installed
+- Currently it does not include **curl** package (http requests not supported).
 
 ##Collaboration
 
@@ -82,6 +86,7 @@ Please report [issues] in GitHub.
 
 <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
+[jsonlite]: https://cran.r-project.org/web/packages/jsonlite/index.html
 [ggplot2]:  http://ggplot2.org/
 [original]: http://nafiux.com/blog/2015/09/11/running-r-statistics-in-aws-lambda/
 [issues]:   https://github.com/nafiux/portableR/issues

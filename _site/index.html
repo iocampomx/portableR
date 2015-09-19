@@ -10,15 +10,15 @@
   <meta name="description" content="portableR is a version of R statistics that have all their static libraries within the same folder, this lets run in x86_64 computers. It’s useful when you don’t have access as root to install packages. This project is aimed to run in web servers to build microservices (AWS Lambda) that require R to process data, png chart generation, etc.
 ">
 
-  <!--link rel="stylesheet" href="/css/main.css"-->
+  <!--link rel="stylesheet" href="/portableR/css/main.css"-->
 
-  <link rel="stylesheet" type="text/css" href="/stylesheets/normalize.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="/portableR/stylesheets/normalize.css" media="screen">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="/stylesheets/github-light.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="/portableR/stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="/portableR/stylesheets/github-light.css" media="screen">
 
-  <link rel="canonical" href="http://nafiux.github.io/portableR/">
-  <link rel="alternate" type="application/rss+xml" title="portableR" href="http://nafiux.github.io/portableR/feed.xml" />
+  <link rel="canonical" href="http://nafiux.github.io/portableR/portableR/">
+  <link rel="alternate" type="application/rss+xml" title="portableR" href="http://nafiux.github.io/portableR/portableR/feed.xml" />
 </head>
 
 
@@ -56,7 +56,13 @@
 
 <ul>
   <li>Project size ~40 MB to meet the AWS Lambda requirements that allows sizes up 50MB</li>
-  <li>Support <a href="http://ggplot2.org/">ggplot2</a> charts</li>
+</ul>
+
+<h2 id="packages"> Packages</h2>
+
+<ul>
+  <li><a href="http://ggplot2.org/">ggplot2</a></li>
+  <li><a href="https://cran.r-project.org/web/packages/jsonlite/index.html">jsonlite</a></li>
 </ul>
 
 <h2 id="usage">Usage</h2>
@@ -106,14 +112,14 @@ Platform: x86_64-pc-linux-gnu <span class="o">(</span>64-bit<span class="o">)</s
 <h2 id="future-work">Future work</h2>
 
 <ul>
-  <li>Support http (curl) request, currently does not have <strong>curl</strong> package installed</li>
+  <li>Currently it does not include <strong>curl</strong> package (http requests not supported).</li>
 </ul>
 
 <h2 id="collaboration">Collaboration</h2>
 
 <p>Please report <a href="https://github.com/nafiux/portableR/issues">issues</a> in GitHub.</p>
 
-<p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+<p class="rss-subscribe">subscribe <a href="/portableR/feed.xml">via RSS</a></p>
 
 
 
