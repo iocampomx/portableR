@@ -1,0 +1,25 @@
+Package: httr
+Version: 1.0.0
+Title: Tools for Working with URLs and HTTP
+Description: Useful tools for working with HTTP organised by HTTP verbs
+    (GET(), POST(), etc). Configuration functions make it easy to control
+    additional request components (authenticate(), add_headers() and so on).
+Authors@R: c(
+    person("Hadley", "Wickham", , "hadley@rstudio.com", role = c("aut", "cre")),
+    person("RStudio", role = "cph")
+    )
+Depends: R (>= 3.0.0)
+Imports: digest, jsonlite, mime, curl (>= 0.6), R6, stringr (>= 0.6.1)
+Suggests: base64enc, httpuv, jpeg, knitr, PKI (>= 0.1-2), png, testthat
+        (>= 0.8.0), XML
+VignetteBuilder: knitr
+License: MIT + file LICENSE
+URL: https://github.com/hadley/httr
+NeedsCompilation: no
+Packaged: 2015-06-24 20:35:50 UTC; hadley
+Author: Hadley Wickham [aut, cre],
+  RStudio [cph]
+Maintainer: Hadley Wickham <hadley@rstudio.com>
+Repository: CRAN
+Date/Publication: 2015-06-25 12:14:59
+Built: R 3.2.2; ; 2015-11-29 09:08:01 UTC; unix

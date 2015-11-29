@@ -1,0 +1,4 @@
+scale_color_viridis     Viridis color scales
+viridis                 Matplotlib 'viridis' color map
+viridis.map             Original 'viridis' color map
+viridis_pal             Viridis palette (discrete)

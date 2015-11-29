@@ -1,0 +1,4 @@
+arrangeGrob             Arrange multiple grobs on a page
+gridExtra-package       Miscellaneous Functions for "Grid" Graphics
+ngonGrob                Regular polygon grob
+tableGrob               Graphical display of a textual table

@@ -1,0 +1,41 @@
+add_trace               Add a trace to a plotly visualization
+config                  Set the default configuration for plotly
+embed_notebook          Embed a plotly figure as an iframe into a
+                        IPython Notebook
+get_figure              Request a figure object
+get_plot                Obtain underlying data of plotly object
+gg2list                 Convert a ggplot to a list.
+ggplotly                Create plotly graphs using ggplot2 syntax
+group2NA                Drawing ggplot2 geoms with a group aesthetic is
+                        most efficient in plotly when we convert groups
+                        of things that look the same to vectors with
+                        NA.
+hobbs                   Hobbs data
+knit_print.figure       Embed a plotly figure as an iframe in a knitr
+                        doc
+knit_print.plotly       Print a plotly object in a knitr doc
+last_plot               Retrive and create the last plotly (or ggplot).
+layer2traces            Convert a layer to a list of traces. Called
+                        from gg2list()
+layout                  Add and/or modify layout of a plotly
+mic                     Mic data
+offline                 Plotly Offline
+paramORdefault          Convert ggplot params to plotly.
+plot_ly                 Initiate a plotly visualization
+plotly                  Main interface to plotly
+plotly-shiny            Shiny bindings for plotly
+plotly_IMAGE            Create/Modify plotly images
+plotly_POST             Create/Modify plotly graphs
+plotly_build            Build a plotly object before viewing it
+plotly_empty            Create a complete empty plotly graph.
+print.figure            Print a plotly figure object
+print.plotly            Print a plotly object
+signup                  Create a new plotly account.
+style                   Modify trace(s)
+subplot                 View multiple plots in a single view
+toFill                  Use default ggplot colour for fill (gray20) if
+                        not declared
+toRGB                   Convert R colours to RGBA hexadecimal colour
+                        values
+toWidget                Convert a plotly object to an htmlwidget object
+wind                    Wind data

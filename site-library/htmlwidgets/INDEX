@@ -1,0 +1,9 @@
+JS                      Mark character strings as literal JavaScript
+                        code
+createWidget            Create an HTML Widget
+htmlwidgets-package     HTML Widgets for R
+htmlwidgets-shiny       Shiny bindings for HTML widgets
+saveWidget              Save a widget to an HTML file
+scaffoldWidget          Create implementation scaffolding for an HTML
+                        widget
+sizingPolicy            Create a widget sizing policy
