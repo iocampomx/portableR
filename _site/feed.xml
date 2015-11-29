@@ -6,9 +6,54 @@
 </description>
     <link>http://nafiux.github.io/portableR/portableR/</link>
     <atom:link href="http://nafiux.github.io/portableR/portableR/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 19 Sep 2015 10:57:56 -0700</pubDate>
-    <lastBuildDate>Sat, 19 Sep 2015 10:57:56 -0700</lastBuildDate>
-    <generator>Jekyll v2.5.3</generator>
+    <pubDate>Sat, 28 Nov 2015 21:13:13 -0800</pubDate>
+    <lastBuildDate>Sat, 28 Nov 2015 21:13:13 -0800</lastBuildDate>
+    <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>RPostgreSQL Integration (works with RedShift)</title>
+        <description>&lt;p&gt;Now you can use RPostgreSQL directly in your R scripts (to call AWS RedShift for example).&lt;/p&gt;
+
+&lt;h2 id=&quot;example&quot;&gt;Example&lt;/h2&gt;
+
+&lt;h3 id=&quot;create-a-chart-using-ggplot2-with-data-query-from-redshift&quot;&gt;Create a chart using ggplot2 with data (query) from RedShift&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;library(&quot;RPostgreSQL&quot;)
+require(ggplot2)
+drv &amp;lt;- dbDriver(&quot;PostgreSQL&quot;)
+con &amp;lt;- dbConnect(
+	drv,
+	host=&quot;YourDataWareHouse.us-east-1.redshift.amazonaws.com&quot;,
+	port=&quot;5439&quot;,
+	dbname=&quot;tehuixtla&quot;,
+	user=&quot;pueblo&quot;,
+	password=&quot;querido&quot;
+)
+
+projectId &amp;lt;- commandArgs(trailingOnly=TRUE)[1]
+chartFile &amp;lt;- commandArgs(trailingOnly=TRUE)[2]
+
+query &amp;lt;- paste0(&quot;SELECT field1, field2, field3 FROM table1 WHERE field3 IN ( SELECT field3 FROM table2 WHERE projectid = &#39;&quot;, projectId, &quot;&#39;) ORDER BY field1&quot;)
+
+print(query)
+
+data &amp;lt;- dbGetQuery(con, query)
+
+png(filename=chartFile, width=640, height=480)
+
+g &amp;lt;- ggplot(data, aes(field2, field2, color=field3))+geom_line(cex=.2)+theme(legend.position=&quot;none&quot;)
+
+print(g)
+dev.off();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Sat, 28 Nov 2015 00:00:00 -0800</pubDate>
+        <link>http://nafiux.github.io/portableR/portableR/2015/11/28/RPostgreSQL-integration.html</link>
+        <guid isPermaLink="true">http://nafiux.github.io/portableR/portableR/2015/11/28/RPostgreSQL-integration.html</guid>
+        
+        
+      </item>
     
   </channel>
 </rss>

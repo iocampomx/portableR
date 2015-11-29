@@ -17,12 +17,13 @@ layout: default
 
 ##Features
 
-- Project size ~40 MB to meet the AWS Lambda requirements that allows sizes up 50MB
+- Project size ~40 MB to meet the AWS Lambda requirements that allows sizes up [50MB](http://docs.aws.amazon.com/lambda/latest/dg/limits.html#limits-list)
 
 ## Packages
 
 - [ggplot2]
 - [jsonlite]
+- [RPostgreSQL]
 
 ##Usage
 
@@ -87,6 +88,7 @@ Please report [issues] in GitHub.
 <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
 [jsonlite]: https://cran.r-project.org/web/packages/jsonlite/index.html
+[RPostgreSQL]: https://cran.r-project.org/web/packages/RPostgreSQL/index.html
 [ggplot2]:  http://ggplot2.org/
 [original]: http://nafiux.com/blog/2015/09/11/running-r-statistics-in-aws-lambda/
 [issues]:   https://github.com/nafiux/portableR/issues

@@ -25,7 +25,7 @@
   <body>
 
     <section class="page-header">
-  <h1 class="project-name">portableR</h1>
+  <h1 class="project-name"><a href="/portableR/">portableR</a></h1>
   <h2 class="project-tagline">R Statistics ready to run in x86_64 Linux</h2>
   <a href="https://github.com/nafiux/portableR" class="btn">View on GitHub</a>
   <a href="https://github.com/nafiux/portableR/zipball/master" class="btn">Download .zip</a>
@@ -49,13 +49,17 @@
 
 <ul>
   
+    <li>
+      Nov 28, 2015 <a href="/portableR/2015/11/28/RPostgreSQL-integration.html">RPostgreSQL Integration (works with RedShift)</a>
+    </li>
+  
   <li>Sep 11, 2015 <a href="http://nafiux.com/blog/2015/09/11/running-r-statistics-in-aws-lambda/">Running R Statistics in AWS Lambda (original)</a></li>
 </ul>
 
 <h2 id="features">Features</h2>
 
 <ul>
-  <li>Project size ~40 MB to meet the AWS Lambda requirements that allows sizes up 50MB</li>
+  <li>Project size ~40 MB to meet the AWS Lambda requirements that allows sizes up <a href="http://docs.aws.amazon.com/lambda/latest/dg/limits.html#limits-list">50MB</a></li>
 </ul>
 
 <h2 id="packages"> Packages</h2>
@@ -63,6 +67,7 @@
 <ul>
   <li><a href="http://ggplot2.org/">ggplot2</a></li>
   <li><a href="https://cran.r-project.org/web/packages/jsonlite/index.html">jsonlite</a></li>
+  <li><a href="https://cran.r-project.org/web/packages/RPostgreSQL/index.html">RPostgreSQL</a></li>
 </ul>
 
 <h2 id="usage">Usage</h2>
@@ -71,37 +76,37 @@
 
 <p>Setup environment variables:</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/lib
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/lib
 <span class="nb">export </span><span class="nv">R_HOME</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>
-<span class="nb">export </span><span class="nv">R_LIBS</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/site-library</code></pre></div>
+<span class="nb">export </span><span class="nv">R_LIBS</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/site-library</code></pre></figure>
 
 <h4 id="check-version">Check version</h4>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">./R --version</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">./R --version</code></pre></figure>
 
 <p>Output</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">R version 3.2.2 <span class="o">(</span>2015-08-14<span class="o">)</span> -- <span class="s2">&quot;Fire Safety&quot;</span>
-Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">2015</span> The R Foundation <span class="k">for</span> Statistical Computing
-Platform: x86_64-pc-linux-gnu <span class="o">(</span>64-bit<span class="o">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">R version 3.2.2 <span class="o">(</span>2015-08-14<span class="o">)</span> -- <span class="s2">"Fire Safety"</span>
+Copyright <span class="o">(</span>C<span class="o">)</span> 2015 The R Foundation <span class="k">for </span>Statistical Computing
+Platform: x86_64-pc-linux-gnu <span class="o">(</span>64-bit<span class="o">)</span></code></pre></figure>
 
 <h4 id="run-r-script-with-params">Run R script with params</h4>
 
 <p>You need to pass the absolute path of the script.</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">./R --no-restore --file<span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/examples/age.R --args 1988</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">./R --no-restore --file<span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/examples/age.R --args 1988</code></pre></figure>
 
 <p>Output</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">&gt; <span class="o">(</span>today &lt;- Sys.Date<span class="o">())</span>
-<span class="o">[</span>1<span class="o">]</span> <span class="s2">&quot;2015-09-19&quot;</span>
-&gt; <span class="o">(</span>year &lt;- format<span class="o">(</span>today, <span class="s2">&quot;%Y&quot;</span><span class="o">))</span>
-<span class="o">[</span>1<span class="o">]</span> <span class="s2">&quot;2015&quot;</span>
-&gt; <span class="o">(</span>birthYear &lt;- commandArgs<span class="o">(</span><span class="nv">trailingOnly</span><span class="o">=</span>TRUE<span class="o">)[</span>1<span class="o">])</span>
-<span class="o">[</span>1<span class="o">]</span> <span class="s2">&quot;1988&quot;</span>
-&gt; as.numeric<span class="o">(</span>year<span class="o">)</span> - as.numeric<span class="o">(</span>birthYear<span class="o">)</span>
-<span class="o">[</span>1<span class="o">]</span> 27
-&gt;</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="gp">&gt; </span><span class="o">(</span>today &lt;- Sys.Date<span class="o">())</span>
+<span class="o">[</span>1] <span class="s2">"2015-09-19"</span>
+<span class="gp">&gt; </span><span class="o">(</span>year &lt;- format<span class="o">(</span>today, <span class="s2">"%Y"</span><span class="o">))</span>
+<span class="o">[</span>1] <span class="s2">"2015"</span>
+<span class="gp">&gt; </span><span class="o">(</span>birthYear &lt;- commandArgs<span class="o">(</span><span class="nv">trailingOnly</span><span class="o">=</span>TRUE<span class="o">)[</span>1]<span class="o">)</span>
+<span class="o">[</span>1] <span class="s2">"1988"</span>
+<span class="gp">&gt; </span>as.numeric<span class="o">(</span>year<span class="o">)</span> - as.numeric<span class="o">(</span>birthYear<span class="o">)</span>
+<span class="o">[</span>1] 27
+&gt;</code></pre></figure>
 
 <h2 id="examples">Examples</h2>
 
