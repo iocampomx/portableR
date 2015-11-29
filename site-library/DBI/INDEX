@@ -1,0 +1,34 @@
+DBIConnection-class     DBIConnection class.
+DBIDriver-class         DBIDriver class.
+DBIObject-class         DBIObject class.
+DBIResult-class         DBIResult class.
+SQL                     SQL quoting.
+dbClearResult           Clear a result set.
+dbColumnInfo            Information about result types.
+dbConnect               Create a connection to a DBMS.
+dbDataType              Determine the SQL data type of an object.
+dbDisconnect            Disconnect (close) a connection
+dbDriver                Load and unload database drivers.
+dbExistsTable           Does a table exist?
+dbFetch                 Fetch records from a previously executed query.
+dbGetException          Get DBMS exceptions.
+dbGetInfo               Get DBMS metadata.
+dbGetQuery              Send query, retrieve results and then clear
+                        result set.
+dbGetRowCount           The number of rows fetched so far.
+dbGetRowsAffected       The number of rows affected by data modifying
+                        query.
+dbGetStatement          Get the statement associated with a result set
+dbHasCompleted          Has the operation completed?
+dbIsValid               Is this DBMS object still valid?
+dbListConnections       List currently open connections.
+dbListFields            List field names of a remote table.
+dbListResults           A list of all pending results.
+dbListTables            List remote tables.
+dbReadTable             Copy data frames to and from database tables.
+dbRemoveTable           Remove a table from the database.
+dbSendQuery             Execute a statement on a given database
+                        connection.
+dbiCheckCompliance      Check a driver for compliance with DBI.
+make.db.names           Make R identifiers into legal SQL identifiers.
+transactions            Begin/commit/rollback SQL transactions
