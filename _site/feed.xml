@@ -6,9 +6,106 @@
 </description>
     <link>http://nafiux.github.io/portableR/portableR/</link>
     <atom:link href="http://nafiux.github.io/portableR/portableR/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 19 Sep 2015 10:57:56 -0700</pubDate>
-    <lastBuildDate>Sat, 19 Sep 2015 10:57:56 -0700</lastBuildDate>
-    <generator>Jekyll v2.5.3</generator>
+    <pubDate>Sun, 29 Nov 2015 17:51:36 -0800</pubDate>
+    <lastBuildDate>Sun, 29 Nov 2015 17:51:36 -0800</lastBuildDate>
+    <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Plotly package added</title>
+        <description>&lt;p&gt;Create amazing charts with the power of &lt;strong&gt;&lt;a href=&quot;https://github.com/ropensci/plotly&quot;&gt;Plotly&lt;/a&gt;&lt;/strong&gt; and save it wherever you want (without needing a Plotly account).&lt;/p&gt;
+
+&lt;h2 id=&quot;example&quot;&gt;Example&lt;/h2&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;500px&quot; src=&quot;http://nafiux.com.s3-website-us-east-1.amazonaws.com/test/plotly-r.html&quot;&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&quot;create-a-chart-using-plotly-with-data-query-from-redshift&quot;&gt;Create a chart using &lt;strong&gt;Plotly&lt;/strong&gt; with data (query) from RedShift&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;library(&quot;RPostgreSQL&quot;)
+drv &amp;lt;- dbDriver(&quot;PostgreSQL&quot;)
+con &amp;lt;- dbConnect(
+	drv,
+	host=&quot;YourDataWareHouse.us-east-1.redshift.amazonaws.com&quot;,
+	port=&quot;5439&quot;,
+	dbname=&quot;tehuixtla&quot;,
+	user=&quot;pueblo&quot;,
+	password=&quot;querido&quot;
+)
+projectId &amp;lt;- commandArgs(trailingOnly=TRUE)[1]
+query &amp;lt;- paste0(&quot;SELECT field1, field2, field3 FROM table1 WHERE field3 IN ( SELECT field3 FROM table2 WHERE projectid = &#39;&quot;, projectId, &quot;&#39;) ORDER BY field1&quot;)
+records &amp;lt;- dbGetQuery(con, query)
+
+library(plotly)
+
+p &amp;lt;- plot_ly(records, x = field1, y = field2, color = field3)
+p
+
+##########################
+### Two magic lines!!! ###
+##########################
+
+files &amp;lt;- list.files(tempdir(), pattern = &quot;\\.html$&quot;, recursive=TRUE)
+file.copy(paste0(tempdir(), &quot;/&quot;, files[1]), paste0(&quot;/tmp/&quot;, projectId, &quot;.html&quot;), overwrite = TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;about-the-two-magic-lines&quot;&gt;About the two magic lines&lt;/h3&gt;
+
+&lt;p&gt;Every time that you runs R, it creates a new temporary folder for each session, so that when you call plot_ly function, it creates a html file in this temporary folder.&lt;/p&gt;
+
+&lt;p&gt;Having this in mind, you can get the html output file from the temporary folder and save it wherever you need.&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 29 Nov 2015 00:00:00 -0800</pubDate>
+        <link>http://nafiux.github.io/portableR/portableR/2015/11/29/Plotly-package-added.html</link>
+        <guid isPermaLink="true">http://nafiux.github.io/portableR/portableR/2015/11/29/Plotly-package-added.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>RPostgreSQL Integration (works with RedShift)</title>
+        <description>&lt;p&gt;Now you can use RPostgreSQL directly in your R scripts (to call AWS RedShift for example).&lt;/p&gt;
+
+&lt;h2 id=&quot;example&quot;&gt;Example&lt;/h2&gt;
+
+&lt;h3 id=&quot;create-a-chart-using-ggplot2-with-data-query-from-redshift&quot;&gt;Create a chart using ggplot2 with data (query) from RedShift&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;library(&quot;RPostgreSQL&quot;)
+require(ggplot2)
+drv &amp;lt;- dbDriver(&quot;PostgreSQL&quot;)
+con &amp;lt;- dbConnect(
+	drv,
+	host=&quot;YourDataWareHouse.us-east-1.redshift.amazonaws.com&quot;,
+	port=&quot;5439&quot;,
+	dbname=&quot;tehuixtla&quot;,
+	user=&quot;pueblo&quot;,
+	password=&quot;querido&quot;
+)
+
+projectId &amp;lt;- commandArgs(trailingOnly=TRUE)[1]
+chartFile &amp;lt;- commandArgs(trailingOnly=TRUE)[2]
+
+query &amp;lt;- paste0(&quot;SELECT field1, field2, field3 FROM table1 WHERE field3 IN ( SELECT field3 FROM table2 WHERE projectid = &#39;&quot;, projectId, &quot;&#39;) ORDER BY field1&quot;)
+
+print(query)
+
+data &amp;lt;- dbGetQuery(con, query)
+
+png(filename=chartFile, width=640, height=480)
+
+g &amp;lt;- ggplot(data, aes(field2, field2, color=field3))+geom_line(cex=.2)+theme(legend.position=&quot;none&quot;)
+
+print(g)
+dev.off();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Sat, 28 Nov 2015 00:00:00 -0800</pubDate>
+        <link>http://nafiux.github.io/portableR/portableR/2015/11/28/RPostgreSQL-integration.html</link>
+        <guid isPermaLink="true">http://nafiux.github.io/portableR/portableR/2015/11/28/RPostgreSQL-integration.html</guid>
+        
+        
+      </item>
     
   </channel>
 </rss>

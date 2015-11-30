@@ -2,7 +2,7 @@
 layout: default
 ---
 
-**portableR** is a version of R statistics that have all their static libraries within the same folder, this lets run in x86_64 computers. It's useful when you don't have access as root to install packages. This project is aimed to run in web servers to build microservices ([**AWS Lambda**][labmda]) that require R to process data, png chart generation, etc.
+**portableR** is a version of R statistics that have all their static libraries within the same folder, this lets run in x86_64 VMs. This project is aimed to run in web servers to build microservices ([**AWS Lambda**][labmda]) that require R to process data, png chart generation, etc.
 
 ##News
 
@@ -19,11 +19,16 @@ layout: default
 
 - Project size ~40 MB to meet the AWS Lambda requirements that allows sizes up [50MB](http://docs.aws.amazon.com/lambda/latest/dg/limits.html#limits-list)
 
-## Packages
+## Notable packages
 
+- [plotly]
 - [ggplot2]
 - [jsonlite]
 - [RPostgreSQL]
+
+## Plotly example <small>([read more](/portableR/2015/11/29/Plotly-package-added.html))</small>
+
+<iframe width="100%" height="500px" src="http://nafiux.com.s3-website-us-east-1.amazonaws.com/test/plotly-r.html"></iframe>
 
 ##Usage
 
@@ -89,6 +94,7 @@ Please report [issues] in GitHub.
 
 [jsonlite]: https://cran.r-project.org/web/packages/jsonlite/index.html
 [RPostgreSQL]: https://cran.r-project.org/web/packages/RPostgreSQL/index.html
+[plotly]: https://github.com/ropensci/plotly
 [ggplot2]:  http://ggplot2.org/
 [original]: http://nafiux.com/blog/2015/09/11/running-r-statistics-in-aws-lambda/
 [issues]:   https://github.com/nafiux/portableR/issues
